@@ -46,7 +46,6 @@ while True:
             
     print()
     for scoresheet in needed:
-        print("Looking for match:")
         print(scoresheet)
         print(scoresheet.matches)
 
