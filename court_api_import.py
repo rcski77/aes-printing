@@ -23,15 +23,10 @@ class Court:
 url = "https://results.advancedeventsystems.com/api/event/PTAwMDAwMzY0NDE90/courts/2024-06-24/300"
 time_offset = 3600000
 needed = [
-    Court("OCCC North 12", Match(datetime.strptime('2024-06-24 11:00:00', '%Y-%m-%d %H:%M:%S'))),
-    Court("OCCC North 23", Match(datetime.strptime('2024-06-24 11:00:00', '%Y-%m-%d %H:%M:%S'))),
-    Court("OCCC North 2", Match(datetime.strptime('2024-06-24 11:00:00', '%Y-%m-%d %H:%M:%S'))),
-    Court("OCCC North 4", Match(datetime.strptime('2024-06-24 11:00:00', '%Y-%m-%d %H:%M:%S'))),
-    Court("OCCC North 54", Match(datetime.strptime('2024-06-24 11:30:00', '%Y-%m-%d %H:%M:%S'))),
-    Court("OCCC North 31", Match(datetime.strptime('2024-06-24 11:30:00', '%Y-%m-%d %H:%M:%S'))),
-    Court("OCCC North 78", Match(datetime.strptime('2024-06-24 12:00:00', '%Y-%m-%d %H:%M:%S'))),
-    Court("OCCC North 5", Match(datetime.strptime('2024-06-24 11:00:00', '%Y-%m-%d %H:%M:%S'))),
-    Court("OCCC North 3", Match(datetime.strptime('2024-06-24 12:00:00', '%Y-%m-%d %H:%M:%S'))),
+    Court("OCCC North 10", Match(datetime.strptime('2024-06-24 14:00:00', '%Y-%m-%d %H:%M:%S'))),
+    Court("OCCC North 24", Match(datetime.strptime('2024-06-24 14:00:00', '%Y-%m-%d %H:%M:%S'))),
+    Court("OCCC North 55", Match(datetime.strptime('2024-06-24 13:30:00', '%Y-%m-%d %H:%M:%S'))),
+    Court("OCCC North 57", Match(datetime.strptime('2024-06-24 14:30:00', '%Y-%m-%d %H:%M:%S'))),
     ]
 
 while True:
@@ -55,9 +50,9 @@ while True:
         print(scoresheet)
         print(scoresheet.matches)
 
-        for each in new_grid:
-            if each.name == scoresheet.name:
-                for match in each.matches:
+        for each_court in new_grid:
+            if each_court.name == scoresheet.name:
+                for match in each_court.matches:
                     if scoresheet.matches.timestamp == match.timestamp:
                         if "Winner" in match.team1 or "Winner" in match.team2 or "Loser" in match.team1 or "Loser" in match.team2:
                             print(colored("Match NOT ready", 'red'))
